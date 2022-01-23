@@ -15,25 +15,23 @@ body {
 }
 
 .title {
-  width: 50rem;
+  width: 12rem;
   height: 10rem;
-  padding: 0.5rem;
+  padding: 2rem;
   margin: 0rem;
-  position: relative;
-  top: 0px;
-  left: 0px;
 }
 .title__text {
-  background-image: url("https://javascript30.com/images/JS3-social-share.png");
+  background-image: url("https://external-preview.redd.it/U6WUaDroHon6eRKDzLw8kgxGq-PTUAYEfdI0YYoqKew.jpg?auto=webp&s=a5456d84869ad4bd505952a0ea4851af4b0d908e");
   background-size: cover;
   background-clip: text;
   color: transparent;
   font-family: "Roboto Slab", serif;
   text-transform: uppercase;
-  font-size: calc(2rem + 4rem);
+  font-size: calc(2rem + 3rem);
   position: relative;
-  top: 0px;
-  left: 0px;
+  left: -1px;
+  top: -270px;
+  text-align: center;
 }
 
 .navbar {
