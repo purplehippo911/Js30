@@ -1,15 +1,49 @@
-:root {
-    font-size:18px;
-    font-family:'sans-serif';
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap");
 
+:root {
+  font-size: 18px;
+  font-family: "sans-serif";
+  --bg-color: #018ded;
+  --secondary-bgColor: #bada55;
 }
 
 body {
-    margin:0;
-    padding:0;S
-    
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--bg-color);
+  background-image: linear-gradient(180deg, dodgerblue, salmon, yellow);
 }
 
 .title {
-    font-family:'Red Hat Display', sans-serif;
+  width: 50rem;
+  height: 10rem;
+  padding: 0.5rem;
+  margin: 0rem;
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+.title__text {
+  background-image: url("https://javascript30.com/images/JS3-social-share.png");
+  background-size: cover;
+  background-clip: text;
+  color: transparent;
+  font-family: "Roboto Slab", serif;
+  text-transform: uppercase;
+  font-size: calc(2rem + 4rem);
+  position: relative;
+  top: 0px;
+  left: 0px;
+}
+
+.navbar {
+  width: 20rem;
+  background-color: var(--secondary-bgColor);
+}
+.navbar__links {
+  list-style: none;
+}
+.navbar__links__item {
+  list-style: none;
+  gap: 10px;
 }
