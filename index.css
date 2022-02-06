@@ -37,6 +37,8 @@ body {
 .navbar {
   width: 20rem;
   background-color: var(--secondary-bgColor);
+  position: relataive;
+  perspective: 600px;
 }
 .navbar__links {
   list-style: none;
@@ -44,4 +46,7 @@ body {
 .navbar__links__item {
   list-style: none;
   gap: 10px;
+}
+
+.dropdown {
 }
