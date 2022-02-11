@@ -2,8 +2,7 @@ let countdown;
 const timerDisplay = document.querySelector('.display__time-left');
 const endTime = document.querySelector('.display__end-time');
 const timerButtons = document.querySelectorAll('[data-time]');
-// const timerInput = document.querySelector('input[name]');
-
+const restartButton = document.querySelector('.btn');
 
 function timer(seconds) {
     // clear any existing timers
@@ -46,7 +45,17 @@ function startTimer() {
     const seconds = parseInt(this.dataset.time);
     timer(seconds);
 }
+
+function handleRestart() {
+   clearInterval(countdown);
+   const min = "00:00";
+   timerDisplay.textContent = min;
+   endTime.textContent = min;
+}
+
+
 timerButtons.forEach(button => button.addEventListener('click', startTimer));
+restartButton.addEventListener('click', handleRestart);
 document.customForm.addEventListener('submit', function(e) {
     e.preventDefault();
     const mins = this.minutes.value;
