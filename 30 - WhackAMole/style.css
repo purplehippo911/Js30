@@ -1,9 +1,11 @@
 :root {
-  --bg-color: rgb(227, 25, 241);
+  --bg-color: rgba(234, 14, 231, 0.29);
 }
 html {
   box-sizing: border-box;
+  font-size: 10px;
 }
+
 *,
 *:before,
 *:after {
@@ -13,8 +15,7 @@ html {
 body {
   padding: 0;
   margin: 0;
-  font-size: 10px;
-  background: #ffc600;
+  background-color: var(--bg-color);
   font-family: "Amatic SC", cursive;
 }
 
