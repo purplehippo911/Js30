@@ -78,6 +78,7 @@
         score = 0;
         peep();
         setTimeout(() => (timeUp = true), 30000);
+        document.body.style.backgroundColor = "var(--bg-color)";
       }
 
       function bonk(e) {
@@ -87,17 +88,23 @@
         scoreBoard.textContent = score;
       }
 
-      function expertMode() {
-        startGame();
-        const time = randomTime(50, 100);
+      // expert mode
+      function peepExpert() {
+        const time = randomTime(10, 50);
         const hole = randomHole(holes);
         setTimeout(() => {
           hole.classList.remove("up");
           if (!timeUp) peep();
-        }, peepTime);
-        //const peep1 = peep();
-        //const time = peep.time;
-        // const peepTime = randomTime(20, 50);
+        }, time);
+      }
+
+      function expertMode() {
+        scoreBoard.textContent = 0;
+        timeUp = false;
+        score = 0;
+        peepExpert();
+        setTimeout(() => (timeUp = true), 30000);
+        document.body.style.backgroundColor = "red";
       }
 
       moles.forEach((mole) => mole.addEventListener("click", bonk));
