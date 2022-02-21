@@ -1,11 +1,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap");
 
 :root {
-  font-size: 18px;
-  font-family: "sans-serif";
+  font-size: 20px;
+  font-family: "Arial Rounded MT Bold", "Helvetica Rounded", Arial, sans-serif;
   --bg-color: #01aaed8b;
-  --secondary-bgColor: #ff5ee270;
+  --secondary-bg: #ff5ee270;
   --gradient: linear-gradient(1000deg, dodgerblue, salmon, yellow);
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 body {
@@ -22,7 +28,7 @@ body {
   width: 5rem;
   height: 2rem;
   padding: 1rem;
-  margin: 0rem;
+  margin: 2rem;
   font-family: "Roboto Slab", serif;
   position: relative;
   left: -80px;
@@ -31,31 +37,86 @@ body {
 .navbar {
   width: 30rem;
   background-color: var(--secondary-bgColor);
+  border-radius: 1em;
   position: relative;
   perspective: 600px;
 }
 
 .nav_item {
+  margin: 0;
+  padding: 0;
+  list-style: none;
   display: flex;
   justify-content: center;
-  list-style: none;
+}
+
+.nav_item > li {
+  position: relative;
+}
+
+ul > li > a {
+  text-decoration: none;
+  gap: 15px;
+  color: rgba(412, 39, 50, 1);
+  background: rgba(0, 0, 0, 0.2);
+  padding: 10px 20px;
+  display: inline-block;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.dropdown {
+  opacity: 0;
+  position: absolute;
+  overflow: hidden;
+  padding: 20px;
+  top: -20px;
+  border-radius: 2px;
+  transition: all 0.5s;
+  transform: translateY(100px);
+  will-change: opacity;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  display: none;
+}
+
+.trigger_enter .dropdown {
+  display: block;
+}
+
+.trigger_enter_active .dropdown {
+  opacity: 1;
+}
+
+.dropdown > a {
   text-decoration: none;
 }
 
-li > span {
-  position: relative;
-  left: -100px;
-  padding: 5px;
-  margin: 10px;
-  margin-bottom: 15px;
+.dropdownBackground {
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 50px 100px rgba(50, 50, 93, 0.1),
+    0 15px 35px rgba(50, 50, 93, 0.15), 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s, opacity 0.1s, transform 0.2s;
+  transform-origin: 50% 0;
+  display: flex;
+  justify-content: center;
+  opacity: 0;
 }
 
-.nav_links {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  position: relative;
-  left: -100px;
-  gap: 15px;
-  display: none;
+.dropdownBackground.open {
+  opacity: 1;
+}
+
+.arrow {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  display: block;
+  background: white;
+  transform: translateY(-50%) rotate(45deg);
 }

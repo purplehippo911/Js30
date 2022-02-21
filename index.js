@@ -1,8 +1,5 @@
-// cornify
-const pressed = [];
-const secretCode = "potato";
+const triggers = document.querySelectorAll('.nav_item li');
+const background = document.querySelector('.dropdownBackground');
+const nav = document.querySelector('.navbar');
 
-window.addEventListener('keyup', (e) => {
-    console.log(e.key);
 
-})

@@ -11,60 +11,104 @@
   <body>
     <h1 class="title">MyProject</h1>
     <nav class="navbar">
-      <div class="dropdownBackground"></div>
+      <div class="dropdownBackground">
+        <span class="arrow"></span>
+      </div>
       <ul class="nav_item">
         <li>
-          <span>First 10</span>
-          <div class="dropdown dropdown1">
-            <ul class="nav_links nav_links 1">
-              <a href="1 - JS Drum Kit/index.html">DrumKit</a>
-              <a href="2 - JS and CSS Clock/index.html">Js&Css Clock</a>
-              <a href="3 - CSS Variables">CssVariables</a>
-              <a href="4 - ArrayCardio/index.html">ArrayCardio</a>
-              <a href="5 - FlexPanel/index.html">FlexPanel</a>
-              <a href="6 -TypeAhead/index.html">TypeAhead</a>
-              <a href="7 - ArrayCardio2/index.html">ArrayCardio2</a>
-              <a href="8 - HtmlCanvas/index.html">HtmlCanvas</a>
-              <a href="9 - devTools/dev.html">devTools</a>
-              <a href="10 - CheckBox/index.html">checkbox</a>
-            </ul>
-          </div>
+          <a href="#">First 10</a>
+          <ul class="dropdown dropdown 1">
+            <a href="1 - JS Drum Kit/index.html">DrumKit</a>
+            <a href="2 - JSClock/index.html">Js&Css Clock</a>
+            <a href="3 - CSSVariables/index.html">CssVariables</a>
+            <a href="4 - ArrayCardio/index.html">ArrayCardio</a>
+            <a href="5 - FlexPanel/index.html">FlexPanel</a>
+            <a href="6 - TypeAhead/index.html">TypeAhead</a>
+            <a href="7 - ArrayCardio2/index.html">ArrayCardio2</a>
+            <a href="8 - HtmlCanvas/index.html">HtmlCanvas</a>
+            <a href="9 - devTools/dev.html">devTools</a>
+            <a href="10 - CheckBox/index.html">checkbox</a>
+          </ul>
         </li>
         <li>
-          <span>Middle 10</span>
-          <div class="dropdown dropdown2">
-            <div class="nav_links nav_links 2">
-              <a href="11 - VideoPlayer/index.html">videoPlayer</a>
-              <a href="12 - KeySequence/index.html">KeySequence</a>
-              <a href="13 - SlideIn/index.html">SlideInt</a>
-              <a href="14 - ReferenceVsCopy/index.html">ReferenceVsCopy</a>
-              <a href="15 - LocalStorage/index.html">LocalStorage</a>
-              <a href="16 - MouseShadow/index.html">MouseShadow</a>
-              <a href="17 - SortNoArticle/index.html">SortNoArticle</a>
-              <a href="18 - AddingTime/index.html">AddingTime</a>
-              <a href="19 - Webcam/index.html">Webcam</a>
-              <a href="20 - Speech_Detection/index.html">Speech_Detection</a>
-            </div>
-          </div>
+          <a href="#"> Middle 10</a>
+          <ul class="dropdown dropdown2">
+            <a href="11 - VideoPlayer/index.html">videoPlayer</a>
+            <a href="12 - KeySequence/index.html">KeySequence</a>
+            <a href="13 - SlideIn/index.html">SlideInt</a>
+            <a href="14 - ReferenceVsCopy/index.html">ReferenceVsCopy</a>
+            <a href="15 - LocalStorage/index.html">LocalStorage</a>
+            <a href="16 - MouseShadow/index.html">MouseShadow</a>
+            <a href="17 - SortNoArticle/index.html">SortNoArticle</a>
+            <a href="18 - AddingTime/index.html">AddingTime</a>
+            <a href="19 - Webcam/index.html">Webcam</a>
+            <a href="20 - Speech_Detection/index.html">Speech_Detection</a>
+          </ul>
         </li>
         <li>
-          <span>Last 10</span>
-          <div class="dropdown dropdown3">
-            <div class="nav_links nav_links 3">
-              <a href="21 - Geolocation/index.html">Geolocation</a>
-              <a href="22 - FollowAlong/index.html">FollowAlong</a>
-              <a href="23 - SpeechSynthesis/index.html">SpeechSynthesis</a>
-              <a href="24 - Sticky Nav/index.html">StickyNav</a>
-              <a href="25 - EventCapture/index.html">EventCapture</a>
-              <a href="26 - StripeFollow/index.html">StripeFollow</a>
-              <a href="27 - Click&Drag/index-START.html">Click&Drag"</a>
-              <a href="28 - VideoSpeed/index.html">VideoSpeed</a>
-              <a href="29 - CountdownTimer/index.html">CountdownTimer</a>
-              <a href="30 - WhackAMole/index.html">WhackAMole</a>
-            </div>
-          </div>
+          <a href="#"> Last 10</a>
+          <ul class="dropdown dropdown3">
+            <a href="21-Geolocation/index.html">Geolocation</a>
+            <a href="22 - FollowAlong/index.html">FollowAlong</a>
+            <a href="23 - SpeechSynthesis/index.html">SpeechSynthesis</a>
+            <a href="24 - Sticky Nav/index.html">StickyNav</a>
+            <a href="25 - EventCapture/index.html">EventCapture</a>
+            <a href="26 - StripeFollow/index.html">StripeFollow</a>
+            <a href="27-Click&Drag/index.html">Click&Drag</a>
+            <a href="28 - VideoSpeed/index.html">VideoSpeed</a>
+            <a href="29 - CountdownTimer/index.html">CountdownTimer</a>
+            <a href="30 - WhackAMole/index.html">WhackAMole</a>
+          </ul>
         </li>
       </ul>
     </nav>
+
+    <script>
+      const triggers = document.querySelectorAll(".nav_item > li");
+      const background = document.querySelector(".dropdownBackground");
+      const nav = document.querySelector(".navbar");
+
+      function handleEnter() {
+        this.classList.add("trigger_enter");
+        setTimeout(
+          () =>
+            this.classList.contains("trigger_enter") &&
+            this.classList.add("trigger_enter_active"),
+          150
+        );
+        background.classList.add("open");
+
+        const dropdown = this.querySelector(".dropdown");
+        const dropdownCoords = dropdown.getBoundingClientRect();
+        const navCoords = nav.getBoundingClientRect();
+
+        const coords = {
+          height: dropdownCoords.height,
+          width: dropdownCoords.width,
+          top: dropdownCoords.top - navCoords.top,
+          left: dropdownCoords.left - navCoords.left,
+        };
+
+        background.style.setProperty("width", `${coords.width}px`);
+        background.style.setProperty("height", `${coords.height}px`);
+        background.style.setProperty(
+          "transform",
+          `translate(${coords.left}px, ${coords.top}px)`
+        );
+      }
+
+      function handleLeave() {
+        this.classList.remove("trigger_enter");
+        this.classList.remove("trigger_enter_active");
+        background.classList.remove("open");
+      }
+
+      triggers.forEach((trigger) =>
+        trigger.addEventListener("mouseenter", handleEnter)
+      );
+      triggers.forEach((trigger) =>
+        trigger.addEventListener("mouseleave", handleLeave)
+      );
+    </script>
   </body>
 </html>
